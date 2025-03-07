@@ -14,6 +14,7 @@ export default function Home() {
   const [log, setLog] = useState("");
   const [clientApp, setClientApp] = useState("");
   const [callBackApp, setCallBackApp] = useState("");
+  const [secret, setSecret] = useState("");
   const [loading, setLoading] = useState(false);
   const searchParams = useSearchParams()
 
@@ -22,6 +23,7 @@ export default function Home() {
       clientId: searchParams.get("clientId"),
       code: searchParams.get("code"),
       external_user_id: searchParams.get("external_user_id"),
+      client_secret: searchParams.get("client_secret"),
       success: searchParams.get("success"),
     }
     setLog(JSON.stringify(resultQuery))
@@ -36,7 +38,7 @@ export default function Home() {
       if (paramsQuery.success || paramsQuery.success === "true") {
         const dataConnect = {
           client_id: paramsQuery.clientId,
-          client_secret: "AYaHghveYSftDkALO/Wmovr4cc0n7/o7lA95tAvccrQ=",
+          client_secret: paramsQuery.client_secret,
           grant_type: "client_credentials",
           scope: "create_wallet nft_issue wallet_detail",
           code: paramsQuery.code,
@@ -124,7 +126,16 @@ export default function Home() {
               className={inputClass}
             />
           </div>
-          <Link className={buttonClass} href={`jrewallet://?clientId=${clientApp}&callbackUrl=${callBackApp}&external_user_id=${userCalbee}`}>
+          <br />
+          <div className="flex items-center space-x-4">
+            <span>Client Secret :</span>
+            <input
+              value={secret}
+              onChange={(e) => setSecret(e.target.value)}
+              className={inputClass}
+            />
+          </div>
+          <Link className={buttonClass} href={`jrewallet://?clientId=${clientApp}&callbackUrl=${callBackApp}&external_user_id=${userCalbee}&client_secret=${secret}`}>
             Redirect To JRE
           </Link>
         </div>
