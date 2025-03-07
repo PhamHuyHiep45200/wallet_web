@@ -23,7 +23,7 @@ export default function Home() {
       clientId: searchParams.get("clientId"),
       code: searchParams.get("code"),
       external_user_id: searchParams.get("external_user_id"),
-      client_secret: searchParams.get("client_secret"),
+      client_secret: searchParams.get("client_secret") ? decodeURIComponent(searchParams.get("client_secret") as string) : null,
       success: searchParams.get("success"),
     }
     setLog(JSON.stringify(resultQuery))
@@ -135,7 +135,7 @@ export default function Home() {
               className={inputClass}
             />
           </div>
-          <Link className={buttonClass} href={`jrewallet://?clientId=${clientApp}&callbackUrl=${callBackApp}&external_user_id=${userCalbee}&client_secret=${secret}`}>
+          <Link className={buttonClass} href={`jrewallet://?clientId=${clientApp}&callbackUrl=${callBackApp}&external_user_id=${userCalbee}&client_secret=${encodeURIComponent(secret)}`}>
             Redirect To JRE
           </Link>
         </div>
