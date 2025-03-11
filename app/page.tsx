@@ -138,7 +138,7 @@ export default function Home() {
           {/* <Link className={buttonClass} href={`jrewallet://?clientId=${clientApp}&callbackUrl=${callBackApp}&external_user_id=${userCalbee}&client_secret=${encodeURIComponent(secret)}`}>
             Redirect To JRE
           </Link> */}
-          <Link className={buttonClass} href={`jerwallet://calbee/vote/202503a`}>
+          <Link className={buttonClass} href={`jrewallet://calbee/vote/202503a`}>
             Redirect To JRE VOTE
           </Link>
         </div>
