@@ -135,9 +135,9 @@ export default function Home() {
               className={inputClass}
             />
           </div>
-          {/* <Link className={buttonClass} href={`jrewallet://?clientId=${clientApp}&callbackUrl=${callBackApp}&external_user_id=${userCalbee}&client_secret=${encodeURIComponent(secret)}`}>
+          <Link className={buttonClass} href={`jrewallet://?clientId=${clientApp}&callbackUrl=${callBackApp}&external_user_id=${userCalbee}&client_secret=${encodeURIComponent(secret)}`}>
             Redirect To JRE
-          </Link> */}
+          </Link>
           <Link className={buttonClass} href={`jrewallet://calbee/vote/202503a`}>
             Redirect To JRE VOTE
           </Link>
